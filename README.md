@@ -1,6 +1,6 @@
 # wanted-pre-onboarding-frontend
 
-> 지원자 : 이도현
+> ### 지원자 : 이도현
 
 ## 1. 배포 링크
 

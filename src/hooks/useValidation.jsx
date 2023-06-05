@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
 const useValidation = () => {
-  const [isValidEmail, setIsValidEmail] = useState(false);
-  const [isValidPassword, setIsValidPassword] = useState(false);
+  const [email, setEmail] = useState(undefined);
+  const [password, setPassword] = useState(undefined);
   const [messageEmail, setMessageEmail] = useState('');
   const [messagePassword, setMessagePassword] = useState('');
 
@@ -10,23 +10,17 @@ const useValidation = () => {
     setMessageEmail('');
     setMessagePassword('');
     if (type === 'email') {
-      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      const isValid = regex.test(value);
-      setIsValidEmail(isValid);
-      if (!isValidEmail)
-        setMessageEmail('이메일 형식이 맞지 않습니다.');
+      const regex = /^[^\s@]+@[^\s@]+$/;
+      regex.test(value) ? setEmail(value) : setMessageEmail('이메일 형식이 맞지 않습니다.');
     } else if (type === 'password') {
       const regex = /(?=.{8,})/;
-      const isValid = regex.test(value);
-      setIsValidPassword(isValid);
-      if (!isValidPassword)
-        setMessagePassword('패스워드는 8자 이상이어야 합니다.');
+      regex.test(value) ? setPassword(value) : setMessagePassword('패스워드는 8자 이상이어야 합니다.');
     }
-
   };
+  
   return {
-    isValidEmail,
-    isValidPassword,
+    email,
+    password,
     messageEmail,
     messagePassword,
     validateInput,

@@ -20,4 +20,4 @@ npm start
 
 ## 5. 사용 라이브러리
 - axios
-- react-router
+- react-router-dom

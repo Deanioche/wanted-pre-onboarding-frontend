@@ -3,10 +3,12 @@ import { lazy } from 'react';
 import Home from './pages/Home';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
+import useRedirect from "./hooks/useRedirect";
 
 const Todo = lazy(() => import('./pages/Todo'));
 
 function App() {
+  useRedirect();
 
   return (
     <div>

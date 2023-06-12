@@ -1,7 +1,8 @@
-import { useNavigate } from "react-router-dom";
-import useValidation from "../hooks/useValidation";
 import { useCallback } from "react";
-import { signInApi } from "../api/auth";
+import { useNavigate } from "react-router-dom";
+import useValidation from "../../hooks/useValidation";
+import { signInApi } from "../../api/client";
+import styled from "styled-components";
 
 function SignIn() {
     const navigate = useNavigate();
@@ -24,22 +25,22 @@ function SignIn() {
             .then((res) => {
                 if (res.status === 200) {
                     localStorage.setItem("access_token", res.data.access_token);
-                    alert("success");
                     navigate(`/todo`);
                 }
             })
             .catch((err) => {
-                console.log(err);
-                alert(err.response.data.message);
+                throw new Error(err);
             });
     }
 
     return (
         <>
             <button onClick={redirectTo(`/`)}>Home</button>
-            <button onClick={redirectTo(`/signup`)}>회원가입 하러가기</button>
+            <button onClick={redirectTo(`/signup`)}>회원가입</button>
             <h2>로그인</h2>
-            <form onSubmit={(e) => e.preventDefault()}>
+            <SignInForm
+                onSubmit={(e) => e.preventDefault()}
+            >
                 <input
                     type="text"
                     data-testid="email-input"
@@ -64,9 +65,16 @@ function SignIn() {
                 >
                     로그인
                 </button>
-            </form>
+            </SignInForm>
         </>
     );
 }
+
+const SignInForm = styled.form`
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    gap: 5px;
+`
 
 export default SignIn;

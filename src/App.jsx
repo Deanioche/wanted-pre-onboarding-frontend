@@ -1,8 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { lazy } from 'react';
 import Home from './pages/Home';
-import SignIn from './pages/SignIn';
-import SignUp from './pages/SignUp';
+import Auth from './pages/Auth';
 import useRedirect from "./hooks/useRedirect";
 
 const Todo = lazy(() => import('./pages/Todo'));
@@ -10,12 +9,14 @@ const Todo = lazy(() => import('./pages/Todo'));
 function App() {
   useRedirect();
 
+  const authPath = ["/signin", "/signup"];
+
   return (
     <div>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signin" element={<Auth path="/signin"/>} />
+        <Route path="/signup" element={<Auth path="/signup"/>} />
         <Route path="/todo" element={<Todo />} />
       </Routes>
     </div>

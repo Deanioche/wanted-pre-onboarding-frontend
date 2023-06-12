@@ -12,8 +12,8 @@ function Home() {
 
     return (
         <>
-            <button onClick={toPath(`/signin`)}>To signin</button>
-            <button onClick={toPath(`/signup`)}>To signup</button>
+            <button onClick={toPath(`/signin`)}>로그인</button>
+            <button onClick={toPath(`/signup`)}>회원가입</button>
         </>
     );
 }

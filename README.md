@@ -4,6 +4,8 @@
 
 ## 1. 배포 링크
 
+https://wanted-pre-onboarding-frontend-livid.vercel.app/
+
 ## 2. 프로젝트 실행 방법
 ```
 // git clone 후

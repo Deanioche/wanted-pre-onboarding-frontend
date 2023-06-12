@@ -8,6 +8,8 @@ function TodoItem({ contents, dispatch }) {
   const [todoData, setTodoData] = useState(contents);
 
   const modifyInput = () => {
+    if (todoData.todo === "")
+      return;
     handleUpdate(todoData);
     setToggle(false);
   }
@@ -39,6 +41,10 @@ function TodoItem({ contents, dispatch }) {
   }, [dispatch, contents.id]);
 
   const handleCheckbox = () => {
+    setTodoData({
+      ...todoData,
+      isCompleted: !todoData.isCompleted,
+    })
     handleUpdate({
       ...todoData,
       isCompleted: !todoData.isCompleted,
@@ -46,6 +52,7 @@ function TodoItem({ contents, dispatch }) {
   }
 
   const handleCancel = () => {
+    setTodoData(contents)
     setToggle(false);
   }
 

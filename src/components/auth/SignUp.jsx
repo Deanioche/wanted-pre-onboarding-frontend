@@ -28,7 +28,8 @@ function SignUp() {
                 }
             })
             .catch((err) => {
-                throw new Error(err);
+                console.log(err.response.data.message);
+                alert(err.response.data.message);
             });
     }
 

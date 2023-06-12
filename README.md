@@ -47,8 +47,7 @@ npm start
 ```
 ## 4. 데모 영상
 
-데모 영상은 배포 링크로 대체 가능하며, 배포가 되었고 배포된 사이트에서 기능이 모두 동작하면 가산점이 부여됩니다.
-배포된 사이트에서 기능이 정상동작 하지 않는다면 배포 가산점이 부여되지 않습니다
+https://github.com/Deanioche/wanted-pre-onboarding-frontend/assets/66513003/fd867007-b1b6-4fce-a9c9-48468079bf3f
 
 ## 5. 사용 라이브러리
 - axios
